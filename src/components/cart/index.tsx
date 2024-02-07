@@ -27,7 +27,7 @@ export function Cart() {
         <section className="rounded-b-2xl translate-y-0.5 font-medium text-sm p-2.5 bg-white ring-2 ring-white w-[400px] flex flex-col gap-2.5 px-5">
             <p className="text-azul">Tu cesta</p>
             {cart.map((item) => (
-                <CartItem {...item} />
+                <CartItem key={item.id} {...item} />
             ))}
             <span className="h-0.5 rounded-lg bg-negro" />
             <section className="flex justify-between items-center h-9 relative">
