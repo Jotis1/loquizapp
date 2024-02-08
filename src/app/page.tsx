@@ -2,10 +2,21 @@
 
 import { useRouter } from "next/navigation";
 import config from "@/config/config";
+import { useEffect } from "react";
 
 export default function Page() {
     const router = useRouter();
     const page = Object.keys(config.pages)[0];
 
-    return router.push(page);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            router.push(page);
+        }
+    }, [])
+
+    return (
+        <p></p>
+    )
+
 }
