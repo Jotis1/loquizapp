@@ -1,7 +1,10 @@
 import { Stripe } from "stripe";
 
-let stripe: Stripe | null;
+function stripe() {
+    const { STRIPE_SECRET_KEY } = process.env;
+    return new Stripe(STRIPE_SECRET_KEY as string);
+}
 
-stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+const stripeClient = stripe();
 
-export { stripe }
+export { stripeClient as stripe }

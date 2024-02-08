@@ -11,16 +11,16 @@ export async function POST(req: NextRequest) {
             line_items: [
                 {
                     price: body.priceID,
-                    quantity: 1
+                    quantity: body.quantity
                 }
             ],
             success_url: "http://localhost:3000/success",
-            cancel_url: "http://localhost:3000/pricing"
+            cancel_url: "http://localhost:3000"
         });
 
         if (!session) throw new Error("Failed to create session");
 
-        return NextResponse.json({ url: session.url });
+        return NextResponse.json(session);
 
     } catch (error) {
 
