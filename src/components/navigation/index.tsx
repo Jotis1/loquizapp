@@ -22,7 +22,7 @@ export function NavBar() {
                 <p className={`${bungee.className}`}>Tour City Games</p>
             </aside>
             <aside>
-                <button onClick={() => setShowCart(!showCart)} className="flex gap-2.5 text-negro text-sm">
+                {/* <button onClick={() => setShowCart(!showCart)} className="flex gap-2.5 text-negro text-sm">
                     <p>Tu cesta</p>
                     <figure className="relative">
                         <IconShoppingBag size={20} />
@@ -37,7 +37,7 @@ export function NavBar() {
                             )}
                         </AnimatePresence>
                     </figure>
-                </button>
+                </button> */}
             </aside>
             <AnimatePresence>
                 {showCart && (

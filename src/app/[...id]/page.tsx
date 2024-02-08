@@ -54,7 +54,6 @@ export default async function Page(params: { params: { id: [id: string] } }) {
                         </main>
                     </>
                 )}
-
                 <footer className="font-medium bg-white h-16 flex items-center justify-center">
                     <p>tourcitygames.com © 2024</p>
                 </footer>

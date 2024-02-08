@@ -22,10 +22,10 @@ export function Item({ ...price }: StripeConfigAdaper) {
     const { id, unit_amount, nickname: name, description } = price;
 
     const { addToCart, cart } = useBackend();
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
 
     const handleSubstract = () => {
-        if (quantity > 0) setQuantity(quantity - 1);
+        if (quantity > 1) setQuantity(quantity - 1);
     }
 
     return (
@@ -51,11 +51,11 @@ export function Item({ ...price }: StripeConfigAdaper) {
                 </header>
                 <footer className="flex flex-col gap-4">
                     <section className="flex justify-between items-center w-full mt-2 p-2.5">
-                        <p className="text-xs font-medium text-zinc-500">Precio por dispositivo único</p>
-                        <aside className="flex flex-col justify-center items-end">
-                            <p className="text-2xl font-bold">{unit_amount! / 100}€</p>
-                            <p className="text-azul text-xs font-medium">Seleccionado: {getLocalPrice(cart, id, unit_amount)}€</p>
+                        <aside className="text-sm flex flex-col justify-center">
+                            <p className="font-medium text-zinc-500">Precio por dispositivo único</p>
+                            <p className="text-azul font-medium">Dispositivos: {quantity}</p>
                         </aside>
+                        <p className="text-2xl font-bold">{unit_amount! / 100}€</p>
                     </section>
                     <section className="flex gap-2.5 justify-between">
                         <section className="flex items-center">
@@ -69,20 +69,11 @@ export function Item({ ...price }: StripeConfigAdaper) {
                                 <IconPlus size={20} />
                             </button>
                         </section>
-                        <Button dashed onClick={() => {
-                            addToCart({ id: `${id}`, quantity: quantity, price: unit_amount as number, name: name as string })
-                        }}>
-                            {!cart.find((item) => item.id === id) ? (
-                                <section className="flex gap-2 items-center">
-                                    Añadir al carro
-                                    <IconShoppingBagPlus size={20} />
-                                </section>
-                            ) : (
-                                <section className="flex gap-2 items-center">
-                                    Cambiar cantidad
-                                    <IconShoppingBagEdit size={20} />
-                                </section>
-                            )}
+                        <Button dashed pay={quantity > 0} priceID={price.id} quantity={quantity}>
+                            <section className="flex gap-2 items-center">
+                                Comprar
+                                <IconShoppingBagPlus size={20} />
+                            </section>
                         </Button>
                     </section>
                 </footer>
