@@ -4,6 +4,11 @@ import { stripe } from "@/lib";
 export async function POST(req: NextRequest) {
     try {
 
+        let baseURL;
+
+        if (process.env.NODE_ENV === "development") baseURL = "http://localhost:3000";
+        else baseURL = "https://tourcitygames.com";
+
         const body = await req.json();
         const session = await stripe?.checkout.sessions.create({
             mode: "payment",
@@ -14,8 +19,8 @@ export async function POST(req: NextRequest) {
                     quantity: body.quantity
                 }
             ],
-            success_url: "http://localhost:3000/success",
-            cancel_url: "http://localhost:3000"
+            success_url: baseURL + "/success",
+            cancel_url: baseURL
         });
 
         if (!session) throw new Error("Failed to create session");
