@@ -10,9 +10,9 @@ export default function Page() {
             <header className="bg-negro px-5 py-2.5">
                 <NavBar />
             </header>
-            <main className="bg-amarillo grow flex flex-col gap-5 items-center justify-center">
+            <main className="bg-amarillo grow flex flex-col gap-5 items-center justify-center text-center">
                 <p className={`${bungee.className} text-3xl text-negro`}>Muchas gracias</p>
-                <p className="text-negro">Recibirás un correo con tu/s códigos y contraseñas</p>
+                <p className="text-negro max-w-80">Recibirás un correo con tu/s códigos y contraseñas</p>
                 <Link href={"/"} className="px-5 py-2 bg-white rounded-2xl text-sm hover:scale-105 transition-all">
                     Volver al inicio
                 </Link>

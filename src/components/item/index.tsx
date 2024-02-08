@@ -29,14 +29,14 @@ export function Item({ ...price }: StripeConfigAdaper) {
     }
 
     return (
-        <article className="text-negro flex justify-center flex-wrap items-center bg-white rounded-2xl mx-auto p-5 gap-10">
-            <figure className="relative w-[360px] aspect-square rounded-2xl bg-negro">
-                <Image src={price.image_url} alt="Imagen del producto" fill className="rounded-2xl object-cover"></Image>
+        <article className="text-negro flex justify-center item:flex-row flex-col items-center bg-white rounded-2xl mx-auto p-5 gap-10">
+            <figure className="flex grow relative item:h-[360px] h-72 aspect-square rounded-2xl bg-negro">
+                {/* <Image src={price.image_url} alt="Imagen del producto" fill className="rounded-2xl object-cover"></Image> */}
             </figure>
-            <aside className="w-[320px] flex flex-col justify-between min-h-[320px]">
+            <aside className="item:w-80 w-72 flex flex-col justify-between min-h-80">
                 <header className="flex flex-col gap-4">
-                    <h2 className={`${bungee.className} text-3xl`}>{name}</h2>
-                    <p>{description}</p>
+                    <h2 className={`${bungee.className} item:text-3xl text-2xl`}>{name}</h2>
+                    <p className="item:text-base text-sm">{description}</p>
                     <footer className="flex gap-2.5 items-center">
                         <section className="font-medium flex gap-2.5 items-center bg-azul px-4 text-xs py-2 w-fit rounded-2xl text-white">
                             <IconMapPinFilled size={16} />
@@ -51,7 +51,7 @@ export function Item({ ...price }: StripeConfigAdaper) {
                 </header>
                 <footer className="flex flex-col gap-4">
                     <section className="flex justify-between items-center w-full mt-2 p-2.5">
-                        <aside className="text-sm flex flex-col justify-center">
+                        <aside className="item:text-sm text-xs flex flex-col justify-center">
                             <p className="font-medium text-zinc-500">Precio por dispositivo único</p>
                             <p className="text-azul font-medium">Dispositivos: {quantity}</p>
                         </aside>

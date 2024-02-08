@@ -18,6 +18,10 @@ const config: Config = {
         "rojo": "#BA0020",
         "azul": "#007096",
         "cielo": "#8DB9CA"
+      },
+      screens: {
+        "hero": "1147px",
+        "item": "780px"
       }
     },
   },

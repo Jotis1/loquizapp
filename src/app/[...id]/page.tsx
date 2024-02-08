@@ -37,7 +37,7 @@ export default async function Page(params: { params: { id: [id: string] } }) {
                             <Hero price={price} />
                         </header>
                         <main className="flex flex-col gap-10 items-center py-12 px-2.5 bg-amarillo">
-                            <p className={`${bungee.className} text-3xl text-negro`}>¿A qué esperas?</p>
+                            <p className={`${bungee.className} hero:text-3xl text-2xl text-negro`}>¿A qué esperas?</p>
                             <Item {...price} />
                         </main>
                     </>
@@ -54,7 +54,7 @@ export default async function Page(params: { params: { id: [id: string] } }) {
                         </main>
                     </>
                 )}
-                <footer className="font-medium bg-white h-16 flex items-center justify-center">
+                <footer className="bg-white h-16 flex items-center justify-center text-sm">
                     <p>tourcitygames.com © 2024</p>
                 </footer>
             </BackendProvider>

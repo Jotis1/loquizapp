@@ -13,7 +13,7 @@ export default function Page() {
         if (typeof window !== "undefined") {
             router.push(page);
         }
-    }, [])
+    }, [page, router])
 
     return (
         <p></p>
